@@ -1,0 +1,27 @@
+Charcoal mod
+============
+
+Adds charcoal lumps.
+Charcoal lumps behaves like coal lumps but can be created by burning tree or jungletree in the furnance.
+
+
+Copyright (c) 2012 Gal Buki <torusJKL@gmail.com>
+
+
+Installation
+------------
+Copy the folder into ~/.minetest/mods/mintest/
+
+Licenses
+--------
+License for code:
+GPLv2 or later
+(http://www.gnu.org/licenses/gpl-2.0.html)
+
+License for texture:
+Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+(http://creativecommons.org/licenses/by-sa/3.0/)
+
+Attribution
+-----------
+The charcoal graphics is a variation of the original minetest coal graphics.  
