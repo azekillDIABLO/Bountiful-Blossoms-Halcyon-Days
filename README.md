@@ -1,4 +1,5 @@
-# Bountiful-Blossoms--Halcyon-Days
-Minetest Subgame 4.15
+![Header](https://raw.githubusercontent.com/azekillDIABLO/Bountiful-Blossoms--Halcyon-Days/master/menu/header.png)
 
-Check the game page for more info!
+***A Minetest Subgame for 4.15. Adventure, crafting, survival, fight and freedom... Everything you always wanted in a subgame!***
+
+#Check the game page for more info!
