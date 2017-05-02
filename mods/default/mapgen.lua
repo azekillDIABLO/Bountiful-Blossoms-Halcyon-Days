@@ -21,7 +21,6 @@ minetest.register_alias("mapgen_cobble", "default:cobble")
 minetest.register_alias("mapgen_stair_cobble", "stairs:stair_cobble")
 minetest.register_alias("mapgen_mossycobble", "default:mossycobble")
 
-
 --
 -- Ore generation
 --
@@ -217,9 +216,27 @@ minetest.register_decoration({
 			persist = 2
 		},
 		biomes = {"grassland", "forest", "grassland_ocean"},
-		y_min = -555,
+		y_min = 1,
 		y_max = 31000,
 		decoration = "plants:grass",
+	})
+	
+minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:dirt_with_grass"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0,
+			scale = 0.1,
+			spread = {x = 200, y = 200, z = 200},
+			seed = 329,
+			octaves = 2,
+			persist = 1
+		},
+		biomes = {"grassland", "forest"},
+		y_min = 1,
+		y_max = 31000,
+		decoration = "plants:bush",
 	})
 	
 minetest.register_decoration({
