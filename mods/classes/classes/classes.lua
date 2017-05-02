@@ -1,8 +1,3 @@
-local default_class = minetest.setting_get("classes_default_class")
-if not default_class then
-	default_class = "human"
-	minetest.setting_set("classes_default_class", default_class)
-end
 local has_skin_changer = minetest.get_modpath("player_textures") or minetest.get_modpath("skins")
 local has_3d_armor = minetest.get_modpath("3d_armor")
 
@@ -21,7 +16,7 @@ classes.update_player_visuals = function(self, player)
 		return
 	end
 	local name = player:get_player_name()
-	local class = classes.class[name]
+	local class = minetest.setting_get("class")
 	local properties = classes.properties[class]
 	local mesh = ""
 	local texture = properties.texture
@@ -109,12 +104,23 @@ minetest.register_chatcommand("class", {
 })
 
 minetest.register_on_joinplayer(function(player)
-	local name = player:get_player_name()
-	if not classes.class[name] then
-		classes.class[name] = default_class
-	end
-	minetest.after(1, function(player)
+	minetest.after(0.5, function(player)
 		classes:update_player_visuals(player)
 	end, player)
 end)
 
+minetest.register_on_newplayer(function(player)
+	local rand = math.random(1,3)
+	local name = player:get_player_name()
+	--set a random class for every world
+	if rand == 1 then
+		minetest.setting_set("class", "human")
+		classes.class[name] = "human"
+	elseif rand == 2 then
+		minetest.setting_set("class", "dwarf")
+		classes.class[name] = "dwarf"
+	elseif rand == 3 then
+		minetest.setting_set("class", "elf")
+		classes.class[name] = "elf"
+	end
+end)

@@ -55,9 +55,10 @@ minetest.register_node("industrial:crate", {
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
 		meta:set_string("formspec",
-				"size[8,9]"..
-				"list[current_name;main;0,0;8,4;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"size[8,4]"..
+				"list[current_name;main;0,0;8,2;]"..
+				"list[current_player;main;0,2.2;8,2;]" ..
+				"listring[]")
 		meta:set_string("infotext", "Crate")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)
@@ -117,9 +118,10 @@ minetest.register_node("industrial:safe", {
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
 		meta:set_string("formspec",
-				"size[8,9]"..
+				"size[8,6]"..
 				"list[current_name;main;0,0;8,4;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"list[current_player;main;0,4.2;8,2;]" ..
+				"listring[]")
 		meta:set_string("infotext", "Industrial Safe")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
@@ -215,9 +217,10 @@ minetest.register_node("industrial:filingcabinet", {
 	on_construct = function(pos)
 		local meta = minetest.env:get_meta(pos)
 		meta:set_string("formspec",
-				"size[8,9]"..
-				"list[current_name;main;0,0;8,4;]"..
-				"list[current_player;main;0,5;8,4;]")
+				"size[8,4]"..
+				"list[current_name;main;0,0;8,2;]"..
+				"list[current_player;main;0,2.2;8,2;]" ..
+				"listring[]")
 		meta:set_string("infotext", "Filing Cabinet")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*4)

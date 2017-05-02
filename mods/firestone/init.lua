@@ -19,7 +19,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("firestone:firestone", {
-  description = "Fireplace",
+  description = "Firestone",
   tile_images = {"default_cobble.png^firestone_top.png", "default_cobble.png", "default_cobble.png^default_coal_lump.png"},
   groups = {igniter=2, cracky=3, stone=2},
   damage_per_second = 4,

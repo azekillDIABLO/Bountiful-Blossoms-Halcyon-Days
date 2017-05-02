@@ -38,7 +38,7 @@ default.gui_survival_form =
 minetest.register_on_joinplayer(function(player)
 	player:set_inventory_formspec(default.gui_survival_form)
 	player:hud_set_hotbar_itemcount(16)
-	player:hud_set_hotbar_image("blank.png")
+	player:hud_set_hotbar_image("gui_hb_bg.png")
 	player:hud_set_hotbar_selected_image("gui_hotbar_selected.png")
 end)
 
@@ -50,7 +50,7 @@ end)
 minetest.register_item(":", {
 	type = "none",
 	wield_image = "wieldhand.png",
-	wield_scale = {x=1,y=1,z=1},
+	wield_scale = {x=1,y=1,z=2},
 	tool_capabilities = {
 		full_punch_interval = 1.0,
 		max_drop_level = 0,
@@ -59,7 +59,8 @@ minetest.register_item(":", {
 			crumbly = {times={[2]=3.00, [3]=0.70}, uses=0, maxlevel=1},
 			snappy = {times={[3]=0.40}, uses=0, maxlevel=1},
 			oddly_breakable_by_hand = {times={[1]=7.00,[2]=4.00,[3]=1.40}, uses=0, maxlevel=3},
-		}
+		},		
+		damage_groups = {fleshy=1},
 	}
 })
 
@@ -68,9 +69,11 @@ minetest.register_tool("default:pick_wood", {
 	inventory_image = "default_tool_woodpick.png",
 	tool_capabilities = {
 		max_drop_level=0,
+		full_punch_interval = 3.0,
 		groupcaps={
 			cracky={times={[2]=2.00, [3]=1.20}, uses=10, maxlevel=1}
-		}
+		},		
+		damage_groups = {fleshy=6},
 	},
 })
 minetest.register_tool("default:pick_stone", {
@@ -78,9 +81,11 @@ minetest.register_tool("default:pick_stone", {
 	inventory_image = "default_tool_stonepick.png",
 	tool_capabilities = {
 		max_drop_level=0,
+		full_punch_interval = 3.0,
 		groupcaps={
 			cracky={times={[1]=2.00, [2]=1.20, [3]=0.80}, uses=20, maxlevel=1}
-		}
+		},		
+		damage_groups = {fleshy=7},
 	},
 })
 minetest.register_tool("default:pick_steel", {
@@ -88,22 +93,11 @@ minetest.register_tool("default:pick_steel", {
 	inventory_image = "default_tool_steelpick.png",
 	tool_capabilities = {
 		max_drop_level=1,
+		full_punch_interval = 3.0,
 		groupcaps={
 			cracky={times={[1]=4.00, [2]=1.60, [3]=1.00}, uses=10, maxlevel=2}
-		}
-	},
-})
-minetest.register_tool("default:pick_mese", {
-	description = "Mese Pickaxe",
-	inventory_image = "default_tool_mesepick.png",
-	tool_capabilities = {
-		full_punch_interval = 1.0,
-		max_drop_level=3,
-		groupcaps={
-			cracky={times={[1]=2.0, [2]=1.0, [3]=0.5}, uses=20, maxlevel=3},
-			crumbly={times={[1]=2.0, [2]=1.0, [3]=0.5}, uses=20, maxlevel=3},
-			snappy={times={[1]=2.0, [2]=1.0, [3]=0.5}, uses=20, maxlevel=3}
-		}
+		},		
+		damage_groups = {fleshy=8},
 	},
 })
 minetest.register_tool("default:shovel_wood", {
@@ -113,7 +107,8 @@ minetest.register_tool("default:shovel_wood", {
 		max_drop_level=0,
 		groupcaps={
 			crumbly={times={[1]=2.00, [2]=0.80, [3]=0.50}, uses=10, maxlevel=1}
-		}
+		},		
+		damage_groups = {fleshy=1},
 	},
 })
 minetest.register_tool("default:shovel_stone", {
@@ -123,7 +118,8 @@ minetest.register_tool("default:shovel_stone", {
 		max_drop_level=0,
 		groupcaps={
 			crumbly={times={[1]=1.20, [2]=0.50, [3]=0.30}, uses=20, maxlevel=1}
-		}
+		},		
+		damage_groups = {fleshy=2},
 	},
 })
 minetest.register_tool("default:shovel_steel", {
@@ -133,7 +129,8 @@ minetest.register_tool("default:shovel_steel", {
 		max_drop_level=1,
 		groupcaps={
 			crumbly={times={[1]=1.00, [2]=0.70, [3]=0.60}, uses=10, maxlevel=2}
-		}
+		},		
+		damage_groups = {fleshy=3},
 	},
 })
 minetest.register_tool("default:axe_wood", {
@@ -141,10 +138,12 @@ minetest.register_tool("default:axe_wood", {
 	inventory_image = "default_tool_woodaxe.png",
 	tool_capabilities = {
 		max_drop_level=0,
+		full_punch_interval = 2.0,
 		groupcaps={
 			choppy={times={[2]=1.40, [3]=0.80}, uses=10, maxlevel=1},
 			fleshy={times={[2]=1.50, [3]=0.80}, uses=10, maxlevel=1}
-		}
+		},		
+		damage_groups = {fleshy=4},
 	},
 })
 minetest.register_tool("default:axe_stone", {
@@ -152,10 +151,12 @@ minetest.register_tool("default:axe_stone", {
 	inventory_image = "default_tool_stoneaxe.png",
 	tool_capabilities = {
 		max_drop_level=0,
+		full_punch_interval = 2.0,
 		groupcaps={
 			choppy={times={[1]=1.50, [2]=1.00, [3]=0.60}, uses=20, maxlevel=1},
 			fleshy={times={[2]=1.30, [3]=0.70}, uses=20, maxlevel=1}
-		}
+		},		
+		damage_groups = {fleshy=5},
 	},
 })
 minetest.register_tool("default:axe_steel", {
@@ -163,10 +164,12 @@ minetest.register_tool("default:axe_steel", {
 	inventory_image = "default_tool_steelaxe.png",
 	tool_capabilities = {
 		max_drop_level=1,
+		full_punch_interval = 2.0,
 		groupcaps={
 			choppy={times={[1]=2.00, [2]=1.60, [3]=1.00}, uses=10, maxlevel=2},
 			fleshy={times={[2]=1.10, [3]=0.60}, uses=40, maxlevel=1}
-		}
+		},		
+		damage_groups = {fleshy=6},
 	},
 })
 minetest.register_tool("default:sword_wood", {
@@ -179,7 +182,8 @@ minetest.register_tool("default:sword_wood", {
 			fleshy={times={[2]=1.10, [3]=0.60}, uses=10, maxlevel=1},
 			snappy={times={[2]=1.00, [3]=0.50}, uses=10, maxlevel=1},
 			choppy={times={[3]=1.00}, uses=20, maxlevel=0}
-		}
+		},		
+		damage_groups = {fleshy=3},
 	}
 })
 minetest.register_tool("default:sword_stone", {
@@ -192,7 +196,8 @@ minetest.register_tool("default:sword_stone", {
 			fleshy={times={[2]=0.80, [3]=0.40}, uses=20, maxlevel=1},
 			snappy={times={[2]=0.80, [3]=0.40}, uses=20, maxlevel=1},
 			choppy={times={[3]=0.90}, uses=20, maxlevel=0}
-		}
+		},		
+		damage_groups = {fleshy=4},
 	}
 })
 minetest.register_tool("default:sword_steel", {
@@ -205,7 +210,8 @@ minetest.register_tool("default:sword_steel", {
 			fleshy={times={[1]=2.00, [2]=0.80, [3]=0.40}, uses=10, maxlevel=2},
 			snappy={times={[2]=0.70, [3]=0.30}, uses=40, maxlevel=1},
 			choppy={times={[3]=0.70}, uses=40, maxlevel=0}
-		}
+		},		
+		damage_groups = {fleshy=5},
 	}
 })
 
@@ -279,14 +285,14 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craft({
+--[[minetest.register_craft({
 	output = 'default:pick_mese',
 	recipe = {
 		{'default:mese', 'default:mese', 'default:mese'},
 		{'', 'default:stick', ''},
 		{'', 'default:stick', ''},
 	}
-})
+})--]]
 
 minetest.register_craft({
 	output = 'default:shovel_wood',
@@ -1234,9 +1240,9 @@ minetest.register_node("default:chest", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",
-				"size[8,9]"..
-				"list[current_name;main;0,0;8,4;]"..
-				"list[current_player;main;0,5;8,4;]" ..
+				"size[8,4]"..
+				"list[current_name;main;0,0;8,2;]"..
+				"list[current_player;main;0,2.2;8,2;]" ..
 				"listring[]")
 		meta:set_string("infotext", "Chest")
 		local inv = meta:get_inventory()
@@ -1274,9 +1280,9 @@ minetest.register_node("default:chest_locked", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec",
-				"size[8,9]"..
-				"list[current_name;main;0,0;8,4;]"..
-				"list[current_player;main;0,5;8,4;]" ..
+				"size[8,4]"..
+				"list[current_name;main;0,0;8,2;]"..
+				"list[current_player;main;0,2.2;8,2;]" ..
 				"listring[]")
 		meta:set_string("infotext", "Locked Chest")
 		meta:set_string("owner", "")

@@ -56,7 +56,7 @@ minetest.register_craft({
 	output = 'watch:0',
 	recipe = {
 		{'', 'default:steel_ingot', ''},
-		{'default:steel_ingot', 'default:mese_crystal', 'default:steel_ingot'},
+		{'default:steel_ingot', 'default:stick', 'default:steel_ingot'},
 		{'', 'default:steel_ingot', ''}
 	}
 })

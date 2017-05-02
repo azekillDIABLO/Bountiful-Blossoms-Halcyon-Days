@@ -183,7 +183,7 @@ minetest.register_globalstep(function(dtime)
 					expirationtime = 4,
 					size = 2.8,
 					collisiondetection = false,
-					vertical = false,
+					vertical = true,
 					texture = "snowdrift_raindrop.png",
 					playername = player:get_player_name(),
 				})

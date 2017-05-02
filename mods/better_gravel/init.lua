@@ -3,7 +3,7 @@
 -- Settings --
 local dense_gravel_cook = true	-- (true/false) Cook dense gravel into cobblestone.
 local cobble_drop = false		-- (true/false) Cobblestone drops gravel.
-local mossy_drop = true			-- (true/false) Mossy cobble drops gravel.
+local mossy_drop = false			-- (true/false) Mossy cobble drops gravel.
 local mossy_craft = true		-- (true/false) Craft mossy cobble.
 local dense_gravel_gen = true	-- (true/false) Generate dense gravel in gravel.
 
