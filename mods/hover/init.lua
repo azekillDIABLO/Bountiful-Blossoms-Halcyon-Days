@@ -21,7 +21,7 @@ local function pick_item(object, player)
 	if not inv:room_for_item("main", item) then
 		return
 	end
-	minetest.sound_play("hover_pickup", {pos = object:getpos(), gain = 0.4})
+	minetest.sound_play("hover_pickup", {pos = object:getpos(), gain = 1})
 	ent.itemstring = ""
 	inv:add_item("main", item)
 	object:remove()

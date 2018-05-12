@@ -1,5 +1,5 @@
 local craftguide, datas, mt = {}, {}, minetest
-local progressive_mode = true
+local progressive_mode = false
 local get_recipe, get_recipes = mt.get_craft_recipe, mt.get_all_craft_recipes
 local get_result, show_formspec = mt.get_craft_result, mt.show_formspec
 local reg_items = mt.registered_items

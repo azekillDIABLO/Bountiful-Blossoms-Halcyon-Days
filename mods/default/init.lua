@@ -990,7 +990,7 @@ minetest.register_node("default:wood", {
 	description = "Wood",
 	tiles ={"default_wood.png"},
 	is_ground_content = false,
-	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=2},
+	groups = {wood=1,snappy=2,choppy=2,oddly_breakable_by_hand=2},
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -1246,7 +1246,7 @@ minetest.register_node("default:chest", {
 				"listring[]")
 		meta:set_string("infotext", "Chest")
 		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
+		inv:set_size("main", 8*2)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
@@ -1287,7 +1287,7 @@ minetest.register_node("default:chest_locked", {
 		meta:set_string("infotext", "Locked Chest")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
+		inv:set_size("main", 8*2)
 	end,
 	can_dig = function(pos,player)
 		local meta = minetest.get_meta(pos);
@@ -1342,12 +1342,12 @@ minetest.register_node("default:chest_locked", {
 })
 
 default.furnace_inactive_formspec =
-	"size[8,9]"..
+	"size[8,7]"..
 	"image[2,2;1,1;default_furnace_fire_bg.png]"..
 	"list[current_name;fuel;2,3;1,1;]"..
 	"list[current_name;src;2,1;1,1;]"..
 	"list[current_name;dst;5,1;2,2;]"..
-	"list[current_player;main;0,5;8,4;]" ..
+	"list[current_player;main;0,5;8,2;]" ..
 	"listring[current_name;dst]" ..
 	"listring[current_player;main]" ..
 	"listring[current_name;src]" ..
@@ -1482,13 +1482,13 @@ minetest.register_abm({
 			meta:set_string("infotext","Furnace active: "..percent.."%")
 			swap_node(pos,"default:furnace_active")
 			meta:set_string("formspec",
-				"size[8,9]"..
+				"size[8,7]"..
 				"image[2,2;1,1;default_furnace_fire_bg.png^[lowpart:"..
 						(100-percent)..":default_furnace_fire_fg.png]"..
 				"list[current_name;fuel;2,3;1,1;]"..
 				"list[current_name;src;2,1;1,1;]"..
 				"list[current_name;dst;5,1;2,2;]"..
-				"list[current_player;main;0,5;8,4;]" ..
+				"list[current_player;main;0,5;8,2;]" ..
 				"listring[current_name;dst]" ..
 				"listring[current_player;main]" ..
 				"listring[current_name;src]" ..
